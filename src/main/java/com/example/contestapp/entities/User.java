@@ -1,29 +1,47 @@
 package com.example.contestapp.entities;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import lombok.*;
+
+import javax.persistence.*;
 
 @Getter
 @ToString(includeFieldNames=true)
 @Builder
-@RequiredArgsConstructor
+@Entity(name = "users")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int id;
-    private final String surname;
-    private final String name;
+    @Column(name = "surname")
+    private String surname;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "patronymic")
     private String patronymic;
+    @Column(name = "birthday")
     private String birthday;
+
+    @Column(name = "email")
     private String email;
+
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     //todo: add photo
+
+    public void updateSurname(String surname){
+        this.surname = surname;
+    }
+
+    public void updateName(String name){
+        this.name = name;
+    }
+
+    public void updatePatronymic(String patronymic){
+        this.patronymic = patronymic;
+    }
 
 }
