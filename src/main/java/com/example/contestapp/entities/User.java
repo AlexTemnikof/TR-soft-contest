@@ -44,4 +44,16 @@ public class User {
         this.patronymic = patronymic;
     }
 
+    public void updateBirthday(String birthday){
+        this.birthday = birthday;
+    }
+
+    public void updateEmail(String email){
+        this.email = email;
+    }
+
+    public void updatePhoneNumber(String phoneNumber){
+        this.phoneNumber = phoneNumber;
+    }
+
 }

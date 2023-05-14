@@ -42,6 +42,18 @@ public class UserService {
         return userMapper.toDTO(userRepository.getById(id));
     }
 
+    public String getSurnameById(String id){
+        return userRepository.getById(id).getSurname();
+    }
+
+    public String getNameById(String id){
+        return userRepository.getById(id).getName();
+    }
+
+    public String getPatronymicById(String id){
+        return userRepository.getById(id).getPatronymic();
+    }
+
     public UserDTO updateNameById(String id, String name){
         User user = userRepository.getById(id);
         user.updateName(name);
@@ -66,6 +78,39 @@ public class UserService {
     public boolean deleteById(String id){
         userRepository.deleteById(id);
         return true;
+    }
+
+    public String getBirthdayById(String id){
+        return userRepository.getById(id).getBirthday();
+    }
+
+    public String getEmailById(String id){
+        return userRepository.getById(id).getEmail();
+    }
+
+    public String getPhoneNumberById(String id){
+        return userRepository.getById(id).getPhoneNumber();
+    }
+
+    public UserDTO updateBirthdayById(String id, String birthday){
+        User user = userRepository.getById(id);
+        user.updateBirthday(birthday);
+        userRepository.save(user);
+        return userMapper.toDTO(user);
+    }
+
+    public UserDTO updateEmailById(String id, String email){
+        User user = userRepository.getById(id);
+        user.updateEmail(email);
+        userRepository.save(user);
+        return userMapper.toDTO(user);
+    }
+
+    public UserDTO updatePhoneNumberById(String id, String phoneNumber){
+        User user = userRepository.getById(id);
+        user.updatePhoneNumber(phoneNumber);
+        userRepository.save(user);
+        return userMapper.toDTO(user);
     }
 
 }
