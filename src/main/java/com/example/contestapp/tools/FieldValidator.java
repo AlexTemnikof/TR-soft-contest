@@ -12,11 +12,11 @@ public class FieldValidator {
     }
 
     public static void validateBirthday(){
-        //todo: implement;
+        //todo: implement by regex maybe
     }
 
     public static void validateEmail(){
-        //todo: implement
+        //todo: implement by regex maybe
     }
 
     public static void validatePhoneNumber(){
