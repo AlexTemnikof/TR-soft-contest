@@ -12,32 +12,32 @@ public class UserDetailsController {
     private UserService service;
 
     @GetMapping("/{id}/birthday")
-    public String getBirthday(@PathVariable("id") String id){
+    public String getBirthday(@PathVariable("id") String id) throws Exception {
         return service.getBirthdayById(id);
     }
 
     @GetMapping("/{id}/email")
-    public String getEmailById(@PathVariable("id") String id){
+    public String getEmailById(@PathVariable("id") String id) throws Exception {
         return service.getEmailById(id);
     }
 
     @GetMapping("/{id}/phonenumber")
-    public String getPhoneNumberById(@PathVariable("id") String id){
+    public String getPhoneNumberById(@PathVariable("id") String id) throws Exception {
         return service.getPhoneNumberById(id);
     }
 
     @PatchMapping("/{id}/birthday")
-    public UserDTO updateBirthdayById(@PathVariable("id") String id, @RequestParam String birthday){
+    public UserDTO updateBirthdayById(@PathVariable("id") String id, @RequestParam String birthday) throws Exception {
         return service.updateBirthdayById(id, birthday);
     }
 
     @PatchMapping("/{id}/email")
-    public UserDTO updateEmailById(@PathVariable("id") String id, @RequestParam String email){
+    public UserDTO updateEmailById(@PathVariable("id") String id, @RequestParam String email) throws Exception {
         return service.updateEmailById(id, email);
     }
 
     @PatchMapping("/{id}/phonenumber")
-    public UserDTO updatePhoneNumberById(@PathVariable("id") String id, @RequestParam String phoneNumber){
+    public UserDTO updatePhoneNumberById(@PathVariable("id") String id, @RequestParam String phoneNumber) throws Exception {
         return service.updatePhoneNumberById(id, phoneNumber);
     }
 }
