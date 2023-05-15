@@ -1,4 +1,4 @@
-package com.example.contestapp.dto;
+package com.example.contestapp.core.dto;
 
 import lombok.Getter;
 import lombok.Setter;

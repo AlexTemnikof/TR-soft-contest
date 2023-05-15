@@ -1,9 +1,9 @@
-package com.example.contestapp.service;
+package com.example.contestapp.core.service;
 
-import com.example.contestapp.dto.UserDTO;
-import com.example.contestapp.entities.User;
-import com.example.contestapp.mapper.UserMapper;
-import com.example.contestapp.repositories.UserRepository;
+import com.example.contestapp.core.dto.UserDTO;
+import com.example.contestapp.core.entities.User;
+import com.example.contestapp.tools.UserMapper;
+import com.example.contestapp.core.repositories.UserRepository;
 import com.example.contestapp.tools.FieldValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

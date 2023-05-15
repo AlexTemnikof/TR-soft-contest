@@ -1,7 +1,7 @@
-package com.example.contestapp.mapper;
+package com.example.contestapp.tools;
 
-import com.example.contestapp.dto.UserDTO;
-import com.example.contestapp.entities.User;
+import com.example.contestapp.core.dto.UserDTO;
+import com.example.contestapp.core.entities.User;
 import org.mapstruct.Mapper;
 import org.springframework.stereotype.Component;
 

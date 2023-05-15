@@ -1,4 +1,4 @@
-package com.example.contestapp.entities;
+package com.example.contestapp.core.entities;
 
 import lombok.*;
 

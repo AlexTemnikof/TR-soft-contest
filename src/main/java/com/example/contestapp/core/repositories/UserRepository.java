@@ -1,6 +1,6 @@
-package com.example.contestapp.repositories;
+package com.example.contestapp.core.repositories;
 
-import com.example.contestapp.entities.User;
+import com.example.contestapp.core.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
