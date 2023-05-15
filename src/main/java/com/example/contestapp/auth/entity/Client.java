@@ -31,4 +31,8 @@ public class Client {
         this.password = password;
         this.role = role;
     }
+
+    public void setAdmin(){
+        this.role = Role.ADMIN;
+    }
 }

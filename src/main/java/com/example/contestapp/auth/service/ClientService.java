@@ -3,6 +3,7 @@ package com.example.contestapp.auth.service;
 import com.example.contestapp.auth.entity.Client;
 import com.example.contestapp.auth.enums.Role;
 import com.example.contestapp.auth.repository.ClientRepository;
+import com.example.contestapp.tools.FieldValidator;
 import lombok.NonNull;
 import org.springframework.stereotype.Service;
 
@@ -26,5 +27,11 @@ public class ClientService {
         Client client = new Client(login, password, Role.USER);
         clientRepository.save(client);
         return client;
+    }
+
+    public void setAdminRole(String id) throws Exception {
+        Client client = clientRepository.getById(FieldValidator.validateId(id));
+        client.setAdmin();
+        clientRepository.save(client);
     }
 }
