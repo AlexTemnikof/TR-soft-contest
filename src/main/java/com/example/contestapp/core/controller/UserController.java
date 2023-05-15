@@ -1,7 +1,8 @@
-package com.example.contestapp.controller;
+package com.example.contestapp.core.controller;
 
-import com.example.contestapp.dto.UserDTO;
-import com.example.contestapp.service.UserService;
+import com.example.contestapp.core.dto.UserDTO;
+import com.example.contestapp.core.service.UserService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +26,7 @@ public class UserController {
     }
 
     @GetMapping("")
+    @SecurityRequirement(name = "JWT")
     public List<UserDTO> getAll(){
         return service.getAll();
     }
