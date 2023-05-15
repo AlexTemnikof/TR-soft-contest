@@ -4,12 +4,12 @@ import com.example.contestapp.auth.dto.JwtRequest;
 import com.example.contestapp.auth.dto.JwtResponse;
 import com.example.contestapp.auth.dto.RefreshJwtRequest;
 import com.example.contestapp.auth.service.AuthService;
+import com.example.contestapp.auth.service.ClientService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
 import javax.security.auth.message.AuthException;
 
@@ -19,6 +19,7 @@ import javax.security.auth.message.AuthException;
 public class AuthController {
 
     private final AuthService authService;
+    private final ClientService clientService;
 
     @PostMapping("login")
     public ResponseEntity<JwtResponse> login(@RequestBody JwtRequest authRequest) throws AuthException {
@@ -30,6 +31,13 @@ public class AuthController {
     public ResponseEntity<JwtResponse> register(@RequestBody JwtRequest authRequest) throws AuthException {
         final JwtResponse token = authService.register(authRequest);
         return ResponseEntity.ok(token);
+    }
+
+    @PatchMapping("{id}")
+    @SecurityRequirement(name = "JWT")
+    @PreAuthorize("hasAuthority('ADMIN')")
+    public void setAdminRole(@PathVariable("id") String id) throws Exception {
+        clientService.setAdminRole(id);
     }
 
     @PostMapping("token")
