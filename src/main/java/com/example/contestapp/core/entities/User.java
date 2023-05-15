@@ -30,7 +30,8 @@ public class User {
     @Column(name = "phone_number")
     private String phoneNumber;
 
-    //todo: add photo
+    @OneToOne
+    private ImageAttachment imageAttachment;
 
     public void updateSurname(String surname){
         this.surname = surname;
@@ -54,6 +55,10 @@ public class User {
 
     public void updatePhoneNumber(String phoneNumber){
         this.phoneNumber = phoneNumber;
+    }
+
+    public void updateImageAttachment(ImageAttachment imageAttachment){
+        this.imageAttachment = imageAttachment;
     }
 
 }
